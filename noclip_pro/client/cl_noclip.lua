@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
                 end
                
             end
-         
+            DrawText(string.format('NoClip Speed: %.1f',  CurrentSpeed), 0.5, 0.90, true)
 			if IsDisabledControlPressed(0, Config.Controls.goForward) then
                 if Config.FrozenPosition then
                     yoff = -Config.Offsets.y
@@ -133,11 +133,22 @@ Citizen.CreateThread(function()
             SetEntityVisible(NoClipEntity, true, false);
             SetEveryoneIgnorePlayer(PlayerPedId(), false);
 
-        
+         DrawText('W/A/S/D/Q/Z- Move, LShift  Change speed,  H- Relative mode', 0.5, 0.95, true)
         end
         Citizen.Wait(0)
     end
 end)
+
+function DrawText(text, x, y, centred)
+	SetTextScale(0.35, 0.35)
+	SetTextColor(255, 255, 255, 255)
+	SetTextCentre(centred)
+	SetTextDropshadow(1, 0, 0, 0, 200)
+	SetTextFontForCurrentCommand(0)
+	DisplayText(CreateVarString(10, "LITERAL_STRING", text), x, y)
+end
+
+
 
 RegisterNetEvent('admin:toggleNoClip')
 AddEventHandler('admin:toggleNoClip', function()
