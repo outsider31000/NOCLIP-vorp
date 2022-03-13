@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
                 end
                
             end
-            DrawText(string.format('NoClip Speed: %.1f',  CurrentSpeed), 0.5, 0.90, true)
+         
 			if IsDisabledControlPressed(0, Config.Controls.goForward) then
                 if Config.FrozenPosition then
                     yoff = -Config.Offsets.y
